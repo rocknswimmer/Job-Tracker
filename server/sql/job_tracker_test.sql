@@ -7,7 +7,15 @@ job_id int primary key auto_increment,
 job_title varchar(250) not null,
 status varchar(50) not null,
 url varchar(400) not null,
-description varchar(65535) not null
+description text(65535) not null
+);
+
+create table notes(
+note_id int primary key auto_increment,
+note varchar(1000) not null,
+job_id int not null,
+constraint fk_note_job foreign key(job_id)
+references tracked(job_id)
 );
 
 delimiter //
@@ -20,6 +28,9 @@ begin
     insert into tracked (job_title, status, url, description) values
     ("junior dev", "APPLIED", "fakeurl.com", "description here");
     -- more here when get to tests and know
+    
+    insert into notes (note, job_id) values
+    ("test note", 1);
 
 
 end //
