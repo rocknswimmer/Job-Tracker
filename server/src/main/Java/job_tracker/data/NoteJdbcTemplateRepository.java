@@ -24,7 +24,9 @@ public class NoteJdbcTemplateRepository implements NoteRepository{
 
     @Override
     public Note findById(int noteId) {
-        return null;
+        String sql = "select note_id, note, job_id from notes where note_id = ?;";
+        return jdbcTemplate.query(sql, new NoteMapper(), noteId).stream()
+                .findFirst().orElse(null);
     }
 
     @Override

@@ -22,6 +22,8 @@ delimiter //
 create procedure set_known_good_state()
 begin
 
+	delete from notes;
+    alter table notes auto_increment = 1;
     delete from tracked;
     alter table tracked auto_increment = 1;
 

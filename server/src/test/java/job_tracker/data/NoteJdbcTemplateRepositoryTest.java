@@ -30,4 +30,22 @@ class NoteJdbcTemplateRepositoryTest {
         assertEquals("test note", notes.get(0).getContent());
     }
 
+    @Test
+    void shouldNotFindByNonExistingId(){
+        List<Note> notes = repository.findByJobId(1000);
+        assertTrue(notes.size() == 0);
+    }
+
+    @Test
+    void shouldFindByNoteId(){
+        Note note = repository.findById(1);
+        assertNotNull(note);
+        assertEquals("test note", note.getContent());
+    }
+
+    @Test
+    void shouldNotFindByNonExistingNoteId() {
+        Note note = repository.findById(1000);
+        assertNull(note);
+    }
 }
