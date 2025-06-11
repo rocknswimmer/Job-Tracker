@@ -26,7 +26,8 @@ begin
     alter table tracked auto_increment = 1;
 
     insert into tracked (job_title, status, url, description) values
-    ("junior dev", "APPLIED", "fakeurl.com", "description here");
+    ("junior dev", "APPLIED", "fakeurl.com", "description here"),
+    ("job to delete", "FINAL", "deleteurl.com", "need a job with no notes to delete");
     -- more here when get to tests and know
     
     insert into notes (note, job_id) values
