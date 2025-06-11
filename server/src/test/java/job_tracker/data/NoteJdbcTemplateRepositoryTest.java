@@ -22,6 +22,14 @@ class NoteJdbcTemplateRepositoryTest {
         knownGoodState.set();
     }
 
+    public Note noteMaker(){
+        Note note = new Note();
+        note.setContent("Note made in test file");
+        note.setJobId(1);// existing job with notes
+
+        return note;
+    }
+
     @Test
     void shouldFindByJobId(){
         List<Note> notes = repository.findByJobId(1);
@@ -47,5 +55,45 @@ class NoteJdbcTemplateRepositoryTest {
     void shouldNotFindByNonExistingNoteId() {
         Note note = repository.findById(1000);
         assertNull(note);
+    }
+
+    @Test
+    void shouldAddNote(){
+        Note note = noteMaker();
+        Note actual = repository.add(note);
+        assertNotNull(actual);
+        assertEquals("Note made in test file", actual.getContent());
+    }
+
+//    @Test // seems to be something validations will have to take care of
+//    void shouldNotAddNoteWithNonExistingJobId(){
+//        Note note = noteMaker();
+//        note.setJobId(1000);
+//        Note actual = repository.add(note);
+//        assertNull(actual);
+//    }
+
+    @Test
+    void shouldUpdateExistingNote(){
+        Note note = noteMaker();
+        note.setNoteId(2);
+        assertTrue(repository.update(note));
+    }
+
+    @Test
+    void shouldNotUpdateNonExistingNote(){
+        Note note = noteMaker();
+        note.setNoteId(2000);
+        assertFalse(repository.update(note));
+    }
+
+    @Test
+    void shouldDeleteExistingNote(){
+        assertTrue(repository.deleteById(3));
+    }
+
+    @Test
+    void shouldNotDeleteNonExistingNote(){
+        assertFalse(repository.deleteById(3000));
     }
 }

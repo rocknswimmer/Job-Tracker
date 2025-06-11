@@ -33,7 +33,9 @@ begin
     -- more here when get to tests and know
     
     insert into notes (note, job_id) values
-    ("test note", 1);
+    ("test note", 1),
+    ("Note to update",1),
+    ("Note to delete", 1);
 
 
 end //
