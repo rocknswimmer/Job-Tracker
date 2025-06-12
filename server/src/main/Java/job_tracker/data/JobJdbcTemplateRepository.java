@@ -59,7 +59,7 @@ public class JobJdbcTemplateRepository implements JobRepository {
 
     @Override
     public boolean update(Job job) {
-        final String sql = "update tracked set job_title = ?, status = ?, url = ? description = ? where job_id = ?;";
+        final String sql = "update tracked set job_title = ?, status = ?, url = ?, description = ? where job_id = ?;";
 
         return jdbcTemplate.update(sql, job.getTitle(), job.getJobStatus().toString(), job.getUrl(),
                 job.getDescription(), job.getJobId()) > 0;
