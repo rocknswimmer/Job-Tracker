@@ -47,7 +47,7 @@ public class NoteService {
 
         if(!repository.update(note)){
             result.setPayload(null);
-            result.addMessage(String.format("note with id:%s, note found", note.getNoteId()), ResultType.NOT_FOUND);
+            result.addMessage(String.format("note with id:%s not found", note.getNoteId()), ResultType.NOT_FOUND);
         }
 
         return result;
@@ -85,7 +85,7 @@ public class NoteService {
 
     private void jobExists(Result<Note> result){
         if(jobRepository.findById(result.getPayload().getJobId()) == null){
-            result.addMessage(String.format("Job with id:%s, does not exist", result.getPayload().getJobId()),
+            result.addMessage(String.format("Job with id:%s does not exist", result.getPayload().getJobId()),
                     ResultType.NOT_FOUND);
         }
     }
