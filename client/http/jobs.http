@@ -1,1 +1,9 @@
 @url = http://localhost:8080/api/
+
+GET {{url}}/notes/1 HTTP/1.1
+
+###
+
+GET {{url}}/notes/note/2
+
+###
