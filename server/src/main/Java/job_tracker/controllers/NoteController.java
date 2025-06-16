@@ -32,7 +32,6 @@ public class NoteController {
     @PostMapping
     public ResponseEntity<Object> add(@RequestBody Note note){
         Result<Note> result = service.add(note);
-        System.out.println(note);
         if(result.isSuccess()){
             return new ResponseEntity<>(result.getPayload(), HttpStatus.CREATED);
         }

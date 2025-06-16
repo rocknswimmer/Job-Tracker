@@ -35,3 +35,40 @@ DELETE {{url}}/notes/note/4
 
 
 ### Jobs
+
+GET {{url}}/jobs HTTP/1.1
+
+###
+
+GET {{url}}/jobs/1 HTTP/1.1
+
+###
+
+POST {{url}}/jobs HTTP/1.1
+Content-Type: application/json
+
+{
+  "jobId": 0,
+  "title": "post test",
+  "description": "testing post",
+  "jobStatus": "APPLIED",
+  "url": "fakeurl.com",
+  "notes": null
+}
+
+###
+
+PUT {{url}}/jobs/4 HTTP/1.1
+Content-Type: application/json
+
+{
+  "jobId": 4,
+  "title": "put test",
+  "description": "testing put",
+  "jobStatus": "APPLIED",
+  "url": "fakeurl.com",
+  "notes": null
+}
+
+###
+DELETE {{url}}/jobs/4
