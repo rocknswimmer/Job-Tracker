@@ -92,6 +92,10 @@ public class JobService {
             result.addMessage("Job description is required", ResultType.INVALID);
         }
 
+        if(job.getCompany() == null || job.getCompany().isBlank()){
+            result.addMessage("Job company is required", ResultType.INVALID);
+        }
+
         return result;
     }
 }
