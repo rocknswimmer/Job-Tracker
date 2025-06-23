@@ -19,6 +19,7 @@ public class JobMapper implements RowMapper<Job> {
         job.setJobStatus(JobStatus.valueOf(resultSet.getString("status")));
         job.setUrl(resultSet.getString("url"));
         job.setDescription(resultSet.getString("description"));
+        job.setCompany(resultSet.getString("company"));
 
         return job;
     }

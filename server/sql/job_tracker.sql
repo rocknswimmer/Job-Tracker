@@ -7,7 +7,8 @@ job_id int primary key auto_increment,
 job_title varchar(250) not null,
 status varchar(50) not null,
 url varchar(400) not null,
-description text(65535) not null
+description text(65535) not null,
+company varchar(100) not null
 );
 
 create table notes(

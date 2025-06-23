@@ -31,6 +31,7 @@ class JobJdbcTemplateRepositoryTest {
         job.setJobStatus(JobStatus.BEHAVIORAL);
         job.setUrl("testurl.com");
         job.setDescription("testing repo");
+        job.setCompany("testing company");
 
         return job;
     }

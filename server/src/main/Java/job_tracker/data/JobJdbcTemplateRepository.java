@@ -22,14 +22,14 @@ public class JobJdbcTemplateRepository implements JobRepository {
 
     @Override
     public List<Job> findAll() {
-        final String sql = "select job_id, job_title, status, url, description from tracked;";
+        final String sql = "select job_id, job_title, status, url, description, company from tracked;";
 
         return jdbcTemplate.query(sql, new JobMapper());
     }
 
     @Override
     public Job findById(int jobId) {
-        final String sql = "select job_id, job_title, status, url, description from tracked where job_id = ?;";
+        final String sql = "select job_id, job_title, status, url, description, company from tracked where job_id = ?;";
 
         return jdbcTemplate.query(sql, new JobMapper(), jobId).stream()
                 .findFirst().orElse(null);
@@ -37,7 +37,7 @@ public class JobJdbcTemplateRepository implements JobRepository {
 
     @Override
     public Job add(Job job) {
-        final String sql = "insert into tracked (job_title, status, url, description) values (?,?,?,?);";
+        final String sql = "insert into tracked (job_title, status, url, description, company) values (?,?,?,?,?);";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int affectedRows = jdbcTemplate.update(connection -> {
@@ -46,6 +46,7 @@ public class JobJdbcTemplateRepository implements JobRepository {
             ps.setString(2, job.getJobStatus().toString());
             ps.setString(3, job.getUrl());
             ps.setString(4, job.getDescription());
+            ps.setString(5, job.getCompany());
             return ps;
         }, keyHolder);
 
@@ -59,10 +60,10 @@ public class JobJdbcTemplateRepository implements JobRepository {
 
     @Override
     public boolean update(Job job) {
-        final String sql = "update tracked set job_title = ?, status = ?, url = ?, description = ? where job_id = ?;";
+        final String sql = "update tracked set job_title = ?, status = ?, url = ?, description = ?, company = ? where job_id = ?;";
 
         return jdbcTemplate.update(sql, job.getTitle(), job.getJobStatus().toString(), job.getUrl(),
-                job.getDescription(), job.getJobId()) > 0;
+                job.getDescription(), job.getCompany(), job.getJobId()) > 0;
     }
 
     @Override

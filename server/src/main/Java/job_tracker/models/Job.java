@@ -9,6 +9,7 @@ public class Job {
     private JobStatus jobStatus;
     private String url;
     private List<Note> notes;
+    private String company;
 
     public Job() {}
 
@@ -65,5 +66,13 @@ public class Job {
 
     public void setNotes(List<Note> notes) {
         this.notes = notes;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
     }
 }

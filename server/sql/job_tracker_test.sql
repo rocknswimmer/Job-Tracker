@@ -7,7 +7,8 @@ job_id int primary key auto_increment,
 job_title varchar(250) not null,
 status varchar(50) not null,
 url varchar(400) not null,
-description text(65535) not null
+description text(65535) not null,
+company varchar(100) not null
 );
 
 create table notes(
@@ -27,10 +28,10 @@ begin
     delete from tracked;
     alter table tracked auto_increment = 1;
 
-    insert into tracked (job_title, status, url, description) values
-    ("junior dev", "APPLIED", "fakeurl.com", "description here"),
-    ("job to delete", "FINAL", "deleteurl.com", "need a job with no notes to delete"),
-    ("job to update", "FINAL", "updateurl.com", "need a job to update");
+    insert into tracked (job_title, status, url, description, company) values
+    ("junior dev", "APPLIED", "fakeurl.com", "description here", "fake Company"),
+    ("job to delete", "FINAL", "deleteurl.com", "need a job with no notes to delete", "delete Company"),
+    ("job to update", "FINAL", "updateurl.com", "need a job to update", "update Company");
     -- more here when get to tests and know
     
     insert into notes (note, job_id) values
