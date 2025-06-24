@@ -76,7 +76,11 @@ public class NoteService {
         if(note.getContent() == null || note.getContent().isBlank()){
             result.addMessage("Note content is required", ResultType.INVALID);
             return result;
+        } else if(note.getContent().length() > 1000){
+            result.addMessage("Note content must be less than 1000 characters", ResultType.INVALID);
+            return result;
         }
+
 
         jobExists(result);
 
