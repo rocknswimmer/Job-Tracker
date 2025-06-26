@@ -8,7 +8,7 @@ function CategoryContainer({category, jobs}) {
     {categoryJobs.length > 0 && categoryJobs.map(job => {
       return (
         <>
-        <h3>job container component</h3>
+        <h3>job component</h3>
         <p>{job.title}</p>
         </>
       )
