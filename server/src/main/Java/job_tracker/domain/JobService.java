@@ -78,6 +78,8 @@ public class JobService {
 
         if(job.getTitle() == null || job.getTitle().isBlank()){
             result.addMessage("Job title is required", ResultType.INVALID);
+        } else if (job.getTitle().length() > 250){
+            result.addMessage("Job title must be 250 characters or less", ResultType.INVALID);
         }
 
         if(job.getJobStatus() == null){
@@ -86,14 +88,20 @@ public class JobService {
 
         if(job.getUrl() == null || job.getUrl().isBlank()){
             result.addMessage("Job url is required", ResultType.INVALID);
+        } else if (job.getUrl().length() > 400){
+            result.addMessage("Url must be 400 characters or less", ResultType.INVALID);
         }
 
         if(job.getDescription() == null || job.getDescription().isBlank()){
             result.addMessage("Job description is required", ResultType.INVALID);
+        } else if (job.getDescription().length() > 65535){
+            result.addMessage("Job description must be 65535 characters or less", ResultType.INVALID);
         }
 
         if(job.getCompany() == null || job.getCompany().isBlank()){
             result.addMessage("Job company is required", ResultType.INVALID);
+        } else if (job.getCompany().length() > 100){
+            result.addMessage("Company name must be 100 characters or less", ResultType.INVALID);
         }
 
         return result;
