@@ -102,6 +102,4 @@ class JobServiceTest {
     }
 
     //company tests
-
-
 }
