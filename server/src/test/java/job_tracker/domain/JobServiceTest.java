@@ -102,5 +102,21 @@ class JobServiceTest {
     }
 
     //company tests
+    @Test
+    void shouldNotAddNullCompany(){
+        Job job = jobMaker();
+        job.setCompany(null);
+        Result<Job> result = service.add(job);
+        assertFalse(result.isSuccess());
+        assertTrue(result.getMessages().get(0).equals("Job company is required"));
+    }
 
+    @Test
+    void shouldNotAddLongCompany(){
+        Job job = jobMaker();
+        job.setCompany("12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
+        Result<Job> result = service.add(job);
+        assertFalse(result.isSuccess());
+        assertTrue(result.getMessages().get(0).equals("Company name must be 100 characters or less"));
+    }
 }
