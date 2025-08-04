@@ -23,18 +23,20 @@ function JobContainer() {
     .catch(console.log())
   }
 
-  return(
+  return (
     <>
-    <h2>job container goes here</h2>
-    <CategoryContainer category="APPLIED" jobs={jobs}/>
-    <CategoryContainer category="REJECTED" jobs={jobs}/>
-    <CategoryContainer category="PHONE" jobs={jobs}/>
-    <CategoryContainer category="TECH" jobs={jobs}/>
-    <CategoryContainer category="BEHAVIORAL" jobs={jobs}/>
-    <CategoryContainer category="FINAL" jobs={jobs}/>
-    <CategoryContainer category="OFFER" jobs={jobs}/>
+      <h2>job container goes here</h2>
+      <div class="d-flex flex-row">
+        <CategoryContainer category="APPLIED" jobs={jobs} />
+        <CategoryContainer category="REJECTED" jobs={jobs} />
+        <CategoryContainer category="PHONE" jobs={jobs} />
+        <CategoryContainer category="TECH" jobs={jobs} />
+        <CategoryContainer category="BEHAVIORAL" jobs={jobs} />
+        <CategoryContainer category="FINAL" jobs={jobs} />
+        <CategoryContainer category="OFFER" jobs={jobs} />
+      </div>
     </>
-  )
+  );
 }
 
 export default JobContainer;

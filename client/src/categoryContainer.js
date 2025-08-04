@@ -3,7 +3,7 @@ import React from 'react';
 function CategoryContainer({category, jobs}) {
   const categoryJobs = jobs.filter(job => job.jobStatus === category);
   return(
-    <>
+    <div class="d-flex flex-column">
     <h2>{category} jobs</h2>
     {categoryJobs.length > 0 && categoryJobs.map(job => {
       return (
@@ -14,7 +14,7 @@ function CategoryContainer({category, jobs}) {
       )
     })}
     {categoryJobs.length === 0 && <h3>No {category} jobs</h3>}
-    </>
+    </ div>
   )
 }
 
