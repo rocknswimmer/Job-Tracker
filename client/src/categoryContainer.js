@@ -10,6 +10,7 @@ function CategoryContainer({category, jobs}) {
       {categoryJobs.map(job => {
       return (
         //accodion here
+
         <>
         <h3>job component</h3>
         <p>{job.title}</p>
