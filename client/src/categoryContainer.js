@@ -24,3 +24,4 @@ function CategoryContainer({category, jobs}) {
 }
 
 export default CategoryContainer;
+
