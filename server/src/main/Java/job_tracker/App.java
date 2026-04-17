@@ -17,5 +17,23 @@ public class App {
 
 
 
+//
+///**
+// * Auto-generated code below aims at helping you parse
+// * the standard input according to the problem statement.
+// **/
+//
+//num = readline()
+//idk = num.split('.')
+//num = +num
+//        dec=idk[1].length
+//
+//const rNum = parseInt(readline());
+//res = +Math.abs(num-rNum).toFixed(dec)
+//// Write an answer using console.log()
+//// To debug: console.error('Debug messages...');
+//
+//console.log(res > 0 ? res : "No error in measurement");
+////java script sucks 4-3.7 is  0.2999999999999998?
 
 
